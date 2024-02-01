@@ -1,7 +1,5 @@
 {
-  "results":[
-    {
-      "videojuegos":[
+  "videojuegos":[
         {
           "id": 1,
           "title": "The Legend of Zelda",
@@ -112,9 +110,9 @@
         "plataforma":[1,2]
       }
 
-      ]
-    },
-    {
+      ],
+    
+    
       "caegorias":[
         {
           "id": 1,
@@ -161,9 +159,7 @@
           "name":"Acción"
         }
 
-      ]
-    },
-    {
+      ],
       "plataformas":[
         {
           "id": 1,
@@ -194,7 +190,5 @@
           "name":"iOS"
         }
       ]
-    }
-    
-  ]
+  
 }
