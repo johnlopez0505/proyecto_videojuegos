@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import ListBooks from './componentes/ListBooks';
+import CheckBox from './componentes/menu/CheckBox';
 
 function App() {
 
@@ -10,8 +11,6 @@ function App() {
     const response = await fetch(" http://localhost:3500/videojuegos");
     const videojuego = await response.json();
     setJuego(videojuego);
-    console.log(videojuego);
-  
   }
 
   useEffect(()=>{
@@ -21,11 +20,15 @@ function App() {
 
   return (
     <div className="App">
-      {
-        juegos.map(juego =>
-          <ListBooks juegos={juego}/>
-        )
-      }
+      <CheckBox/>
+      <div className='applist'>
+        {
+          juegos.map(juego =>
+            <ListBooks juegos={juego}/>
+          )
+        }
+      </div>
+     
       
     </div>
   );

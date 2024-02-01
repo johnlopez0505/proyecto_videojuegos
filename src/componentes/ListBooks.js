@@ -1,9 +1,15 @@
+import '../componentes/listbooks.css'
+
 const ListBooks = ({juegos}) => {
-    console.log(juegos);
-    return <div>
-                <p>{juegos.title}</p>
-                <img src={juegos.image} alt="img" />
+   
+    return  <div className="listbooks">
+                <div className="img">
+                    <p>{juegos.title}</p>
+                    <img src={juegos.image} alt="img" />
+                </div>
             </div>
 }
+    
+   
 
 export default ListBooks;
