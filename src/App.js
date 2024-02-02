@@ -1,8 +1,8 @@
 
 import { useEffect, useState } from 'react';
 import './App.css';
-import ListBooks from './componentes/ListBooks';
 import CheckBox from './componentes/menu/CheckBox';
+import ListVideo from './componentes/ListVideo';
 
 function App() {
 
@@ -24,7 +24,7 @@ function App() {
       <div className='applist'>
         {
           juegos.map(juego =>
-            <ListBooks juegos={juego}/>
+            <ListVideo juegos={juego}/>
           )
         }
       </div>

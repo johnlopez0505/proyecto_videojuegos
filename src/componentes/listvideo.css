@@ -1,0 +1,17 @@
+
+.listvideo{
+    display: flex;
+    width: 100%;
+}
+
+
+.description{
+    width: 40%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+  
+.img{
+    width: 100%;
+}

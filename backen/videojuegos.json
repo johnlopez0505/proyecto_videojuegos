@@ -77,8 +77,8 @@
         "id": 9,
         "title": " Mass Effect 2",
         "date" : 2010,
-        "description":"Soul Calibur es la segunda edición de la saga de este juego de pelea desarrollado por Namco y que consta de 6 capítulos. El primero surgió en 1995 y el más reciente es el Soul Calibur VI, lanzado en 2018.",
-        "image" : "https://www.infobae.com/new-resizer/lnSnyQUp5Cst-w7mPIQoafRr1PY=/992x614/filters:format(webp):quality(85)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/07/11131054/Soulcalibur.jpg",
+        "description":"Mass Effect 2 es un videojuego de rol de acción publicado por Electronic Arts en 2010.",
+        "image" : "https://www.infobae.com/new-resizer/vHtj9ZDRW4rqjNDVR2NlvreAELA=/992x558/filters:format(webp):quality(85)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/07/11162903/Electronic-Arts-2.jpg",
         "categoria":[1],
         "plataforma":[2,4,7]
       },
@@ -112,83 +112,82 @@
 
       ],
     
-    
-      "caegorias":[
-        {
-          "id": 1,
-          "name":"Lucha"
-        },
-        {
-          "id": 2,
-          "name":"Arcade"
-        },
-        {
-          "id": 3,
-          "name":"Fantasia"
-        },
-        {
-          "id": 4,
-          "name":"Shooter"
-        },
-        {
-          "id": 5,
-          "name":"Estrategia"
-        },
-        {
-          "id": 6,
-          "name":"Logica"
-        },
-        {
-          "id": 7,
-          "name":"Deporte"
-        },
-        {
-          "id": 8,
-          "name":"Aventura"
-        },
-        {
-          "id": 9,
-          "name":"Rol"
-        },
-        {
-          "id": 10,
-          "name":"Educación"
-        },
-        {
-          "id": 11,
-          "name":"Acción"
-        }
+  "caegorias":[
+    {
+      "id": 1,
+      "name":"Lucha"
+    },
+    {
+      "id": 2,
+      "name":"Arcade"
+    },
+    {
+      "id": 3,
+      "name":"Fantasia"
+    },
+    {
+      "id": 4,
+      "name":"Shooter"
+    },
+    {
+      "id": 5,
+      "name":"Estrategia"
+    },
+    {
+      "id": 6,
+      "name":"Logica"
+    },
+    {
+      "id": 7,
+      "name":"Deporte"
+    },
+    {
+      "id": 8,
+      "name":"Aventura"
+    },
+    {
+      "id": 9,
+      "name":"Rol"
+    },
+    {
+      "id": 10,
+      "name":"Educación"
+    },
+    {
+      "id": 11,
+      "name":"Acción"
+    }
 
-      ],
-      "plataformas":[
-        {
-          "id": 1,
-          "name":"PC"
-        },
-        {
-          "id": 2,
-          "name":"PS5"
-        },
-        {
-          "id": 3,
-          "name":"Xbox"
-        },
-        {
-          "id": 4,
-          "name":"One"
-        },
-        {
-          "id": 5,
-          "name":"Switch"
-        },
-        {
-          "id": 6,
-          "name":"Android"
-        },
-        {
-          "id": 7,
-          "name":"iOS"
-        }
-      ]
+  ],
+  "plataformas":[
+    {
+      "id": 1,
+      "name":"PC"
+    },
+    {
+      "id": 2,
+      "name":"PS5"
+    },
+    {
+      "id": 3,
+      "name":"Xbox"
+    },
+    {
+      "id": 4,
+      "name":"One"
+    },
+    {
+      "id": 5,
+      "name":"Switch"
+    },
+    {
+      "id": 6,
+      "name":"Android"
+    },
+    {
+      "id": 7,
+      "name":"iOS"
+    }
+  ]
   
 }
