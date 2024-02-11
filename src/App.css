@@ -7,10 +7,4 @@
 .App-link {
   color: #61dafb;
 }
-.applist{
-  display: block;
-  width: 85%;
-  margin: auto;
-  border-right: 2px  solid #073f14;
-  border-left: 2px solid  #073f14;
-}
+

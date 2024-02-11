@@ -1,9 +1,11 @@
 .checkBox{
-    width: 85%;
+    width: 95%;
     margin: auto;
+    height: 300px;
     background-color: rgb(114, 194, 146);
     border-radius: 20px;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 .checkBox p{
     color: white;
@@ -15,13 +17,27 @@
     color: white;
     margin-top: 10px;
     width: 150px;
-    height: 40px;
 }
 .menucheck_box{
     display: flex;
-    width: 100%;
-    margin-top: 10px;
-    background-color: rgb(114, 194, 146);
+    width: 95%;
+    margin: auto;
+    margin-top: 5px;
+    border-radius: 20px;
+    border: 3px solid black;
+    box-shadow: 0px 3px 12px 10px;
+    background-color:  rgb(37, 215, 191);
+}
+
+.menucheck_box1{
+    display: flex;
+    width: 95%;
+    margin: auto;
+    margin-top: 5px;
+    border-radius: 20px;
+    border: 3px solid black;
+    box-shadow: 0px 3px 20px 12px;
+    background-color: rgb(37, 215, 191);
 }
 
 .menu{
@@ -29,9 +45,8 @@
     height: 40px;
     padding-top: 20px;
     border-radius: 20px;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    margin-right: 2px;
+    margin: 5px;
     border: 2px solid black;
     background-color: rgb(20, 157, 132);
 }
+
