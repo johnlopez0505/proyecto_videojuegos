@@ -68,7 +68,7 @@ const CheckBox = ({categories, plataformas, videoJuegos, setVideoJuegos}) => {
                                         id={"categoria"}
                                         value={true}
                                         onChange={(event)=> handleCheckboxChange(categoria, event.target.checked)} 
-                                        /> 
+                                        defaultChecked/> 
                             </div>
                         )
                     }
@@ -91,6 +91,7 @@ const CheckBox = ({categories, plataformas, videoJuegos, setVideoJuegos}) => {
                     }
                     
                 </nav>
+                <input type='text' placeholder='Buscar videojuego' className='input'/>
                 
             </div>
         )

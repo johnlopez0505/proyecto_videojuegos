@@ -21,13 +21,13 @@ const ListVideo = ({juegos, categories}) => {
                             </div>
                             <p>Precio ${juego.precio}€</p>
                             <p>La categoría es: {getCategoryNames(juego).join(', ')}</p>
+                            <button type='button' className='button'>Borrar</button>
                         </div>
                     )
                 }
                 
             </div>
 }
-    
-   
+
 
 export default ListVideo;
