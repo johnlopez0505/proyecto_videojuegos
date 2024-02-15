@@ -5,16 +5,15 @@ const CheckBox = ({categories, plataformas, videoJuegos, setVideoJuegos}) => {
     const [categoriasSeleccionadas, setCategoriasSeleccionadas] = useState([]);
     const [plataformasSeleccionadas, setPlataformasSeleccionadas] = useState([]);
     const [categori,setCategori] = useState([]);
-    //console.log(categories);
-    //console.log(plataformas);
+   
     const actualizar= ()=>{
-       setCategori([...categoriasSeleccionadas, ...categories]);
+       
     };
     useEffect(()=>{
         actualizar();
     },[categoriasSeleccionadas]);
     
-   console.log(categories);
+   console.log(videoJuegos);
     
     const handleCheckboxChange = (categoria,isChecked) => {
         if (isChecked) {
