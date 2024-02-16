@@ -20,13 +20,17 @@ const ListVideo = ({juegos, categories}) => {
                                 <div className='description'>
                                     <p>{juego.description.slice(0, 100)}...</p>
                                 </div>
+                                {/* {
+                                    console.log(juego.id)
+                                } */}
+                                
                                 <a href="#openModal">Mostrar detalles</a>
                                 <p>Precio ${juego.precio}€</p>
                                 <p>La categoría es: {getCategoryNames(juego).join(', ')}</p>
                                 <button type='button' className='button'>Borrar</button>
                             </div>
                             <div id="openModal" class="modalDialog">
-                                <div>
+                                <div className='modalDescription'>
                                     <a href="#close" title="Close" class="close">X</a>
                                     <p>{juego.title}</p>
                                     <img src={juego.image} alt="img" />
@@ -40,13 +44,8 @@ const ListVideo = ({juegos, categories}) => {
                             </div>
                         
                         </>
-                        
-                        
                     )
                 }
-
-               
-                
             </div>
 }
 

@@ -79,11 +79,13 @@
 	pointer-events: auto;
 }
 .modalDialog > div {
-	width: 400px;
+	width: 35%;
+	height: 570px;
 	position: relative;
 	margin: 10% auto;
 	padding: 5px 20px 13px 20px;
-	border-radius: 10px;
+	border-radius: 30px;
+	box-shadow: 0px 0px 10px 10px ;
 	background: #fff;
 	background: -moz-linear-gradient(#fff, #999);
 	background: -webkit-linear-gradient(#fff, #999);
@@ -92,12 +94,18 @@
 -moz-transition: opacity 400ms ease-in;
 transition: opacity 400ms ease-in;
 }
+
+.modalDescription img{
+	width: 80%;
+    height: 300px;
+    border-radius: 20px;
+}
 .close {
-	background: #606061;
+	background: #d80808;
 	color: #FFFFFF;
 	line-height: 25px;
 	position: absolute;
-	right: -12px;
+	right: 12px;
 	text-align: center;
 	top: -10px;
 	width: 24px;
