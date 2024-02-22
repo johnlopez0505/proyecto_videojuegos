@@ -20,7 +20,7 @@ export const getBooks = async () => {
 
 export const postBook = async (book) => {
     try {
-        const response = await fetch("http://localhost:3000/books/", {
+        const response = await fetch("http://localhost:3000/videojuegos/", {
            method: 'POST',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify(book)
@@ -35,8 +35,8 @@ export const postBook = async (book) => {
     
 }
 
-export const deleteBook = async (book) => {
-    const response = await fetch("http://localhost:3000/books/" + book.id, {
+export const deleteBook = async (videoJuego) => {
+    const response = await fetch("http://localhost:3000/videojuegos/" + videoJuego.id, {
         method: "DELETE"
     });
     

@@ -1,72 +1,70 @@
 
 import { useEffect, useState } from 'react';
 import '../menu/checkbox.css';
-const CheckBox = ({categories, plataformas, videoJuegos, setVideoJuegos}) => {
-    const [categoriasSeleccionadas, setCategoriasSeleccionadas] = useState([]);
-    const [plataformasSeleccionadas, setPlataformasSeleccionadas] = useState([]);
-    const [categori,setCategori] = useState([]);
+import SearchComponent from '../SearchComponent';
+const CheckBox = ({categorias, plataformas, videoJuego,setVideoJuegosSeleccionados,
+        setCategoriasSeleccionadas, categoriasSeleccionadas,setPlataformasSeleccionadas
+        ,plataformasSeleccionadas}) => {
+
    
-    const actualizar= ()=>{
-       
-    };
-    useEffect(()=>{
-        actualizar();
-    },[categoriasSeleccionadas]);
+
+
+   useEffect(()=>{
+    console.log(categoriasSeleccionadas);
+    console.log(plataformasSeleccionadas);
+    //console.log(videoJuego);
+    //setJuego(videoJuegoSeleccionados)
+   },[categoriasSeleccionadas,plataformasSeleccionadas])
     
-   console.log(videoJuegos);
-    
-    const handleCheckboxChange = (categoria,isChecked) => {
-        if (isChecked) {
-            setCategoriasSeleccionadas([...categoriasSeleccionadas, categoria]);
+
+
+    const handleCheckboxChange = (event) => {
+        if (!event.target.checked) {
+            setCategoriasSeleccionadas([...categoriasSeleccionadas,event.target.value]);
+            console.log(event.target.checked);
+
+            
         } 
         else {
+            console.log(event.target.checked);
             const updatedCategorias = categoriasSeleccionadas.filter(
-              selectedCategoria => selectedCategoria !== categoria
+              selectedCategoria => selectedCategoria !== event.target.value
             );
             setCategoriasSeleccionadas(updatedCategorias);
+            console.log("no seleciocnada")
         };
    
     }
     
 
-    const handleCheckboxChangePlataforma = (plataforma,isChecked) =>{
-        if(isChecked) {
-            setPlataformasSeleccionadas([...categoriasSeleccionadas,plataforma]);
+    const handleCheckboxChangePlataforma = (event) =>{
+        
+        if(!event.target.checked) {
+            setPlataformasSeleccionadas([...plataformasSeleccionadas,event.target.value]);
         }
         else{
             const updatedPlataformas = plataformasSeleccionadas.filter(
-                selectedPLataforma => selectedPLataforma !== plataforma
+                selectedPLataforma => selectedPLataforma !== event.target.value
             );
-            console.log(updatedPlataformas);
+            //console.log(updatedPlataformas);
             setPlataformasSeleccionadas(updatedPlataformas);
             
         }
        
     };
-     // Filtra los videojuegos según las categorías y plataformas seleccionadas
-    const videojuegosFiltrados = videoJuegos.filter(videojuego =>
-        categoriasSeleccionadas.length === 0 || categoriasSeleccionadas.includes(videojuego.categoria)
-        ).filter(videojuego =>
-            plataformasSeleccionadas.length === 0 || plataformasSeleccionadas.includes(videojuego.plataforma)
-    
-    );
-    //console.log(videojuegosFiltrados);
-    console.log(categoriasSeleccionadas);
-   
-
 
 
     return ( <div className="checkBox">
                 <p>Categorias</p>
                 <nav className="menucheck_box">
                     {
-                        categories.map(categoria =>
+                        categorias.map(categoria =>
                             <div className="menu" key={categoria.id}> 
-                                <label for="categoria">{categoria.name}</label>
+                                <label htmlFor={`categoria_${categoria.id}`}>{categoria.name}</label>
                                 <input  type={"checkbox"} 
-                                        id={"categoria"}
-                                        value={true}
-                                        onChange={(event)=> handleCheckboxChange(categoria, event.target.checked)} 
+                                        id={`categoria_${categoria.id}`}
+                                        value={categoria.id}
+                                        onChange={handleCheckboxChange} 
                                         defaultChecked/> 
                             </div>
                         )
@@ -79,18 +77,18 @@ const CheckBox = ({categories, plataformas, videoJuegos, setVideoJuegos}) => {
                     {
                         plataformas.map(plataforma =>
                             <div className="menu" key={plataforma.id}> 
-                                <label for="plataformas">{plataforma.name}</label>
+                                <label htmlFor="plataformas">{plataforma.name}</label>
                                 <input  type={"checkbox"} 
                                         id={"plataformas"}
-                                        value={true}
-                                        onChange={(event)=> handleCheckboxChangePlataforma(plataforma,event.target.checked)} 
-                                        defaultChecked/>
+                                        value={plataforma.id}
+                                        onChange={handleCheckboxChangePlataforma} 
+                                        defaultChecked /> 
                             </div>
                         )
                     }
                     
                 </nav>
-                <input type='text' placeholder='Buscar videojuego' className='input'/>
+                {/* <SearchComponent  categorias={categorias}/> */}
                 
             </div>
         )

@@ -97,6 +97,7 @@ transition: opacity 400ms ease-in;
 
 .modalDescription img{
 	width: 80%;
+    margin: auto;
     height: 300px;
     border-radius: 20px;
 }
