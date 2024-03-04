@@ -2,57 +2,58 @@
 import { useEffect, useState } from 'react';
 import '../menu/checkbox.css';
 import SearchComponent from '../SearchComponent';
-const CheckBox = ({categorias, plataformas, videoJuego,setVideoJuegosSeleccionados,
+const CheckBox = ({categorias, plataformas, videoJuego, setJuego, setVideoJuegosSeleccionados, videoJuegoSeleccionados,
         setCategoriasSeleccionadas, categoriasSeleccionadas,setPlataformasSeleccionadas
-        ,plataformasSeleccionadas}) => {
-
+        ,plataformasSeleccionadas, setSearch, search}) => {
+    
    
 
-
    useEffect(()=>{
-    console.log(categoriasSeleccionadas);
-    console.log(plataformasSeleccionadas);
-    //console.log(videoJuego);
-    //setJuego(videoJuegoSeleccionados)
+        filtrarVideoJuegos();
    },[categoriasSeleccionadas,plataformasSeleccionadas])
-    
 
 
     const handleCheckboxChange = (event) => {
+        const selectedId = parseInt(event.target.value);
         if (!event.target.checked) {
-            setCategoriasSeleccionadas([...categoriasSeleccionadas,event.target.value]);
-            console.log(event.target.checked);
-
-            
+            setCategoriasSeleccionadas([...categoriasSeleccionadas,selectedId]);
         } 
         else {
             console.log(event.target.checked);
             const updatedCategorias = categoriasSeleccionadas.filter(
-              selectedCategoria => selectedCategoria !== event.target.value
+              selectedCategoria => selectedCategoria !== selectedId
             );
             setCategoriasSeleccionadas(updatedCategorias);
-            console.log("no seleciocnada")
         };
    
     }
     
 
     const handleCheckboxChangePlataforma = (event) =>{
-        
+        const selectedId = parseInt(event.target.value);
         if(!event.target.checked) {
-            setPlataformasSeleccionadas([...plataformasSeleccionadas,event.target.value]);
+            setPlataformasSeleccionadas([...plataformasSeleccionadas, selectedId]);
         }
         else{
             const updatedPlataformas = plataformasSeleccionadas.filter(
-                selectedPLataforma => selectedPLataforma !== event.target.value
+                selectedPLataforma => selectedPLataforma !== selectedId
             );
-            //console.log(updatedPlataformas);
             setPlataformasSeleccionadas(updatedPlataformas);
             
         }
        
     };
 
+    const filtrarVideoJuegos = () => {
+        // Filtrar videojuegos por categoría
+        const videojuegosFiltrados = videoJuegoSeleccionados.filter(juego => 
+            !juego.categoria.every(categoria => categoriasSeleccionadas.includes(categoria)
+            && juego.plataforma.every(plataforma => plataformasSeleccionadas.includes(plataforma)))
+        );
+        setJuego(videojuegosFiltrados);
+    }
+
+   
 
     return ( <div className="checkBox">
                 <p>Categorias</p>
@@ -88,7 +89,7 @@ const CheckBox = ({categorias, plataformas, videoJuego,setVideoJuegosSeleccionad
                     }
                     
                 </nav>
-                {/* <SearchComponent  categorias={categorias}/> */}
+                <SearchComponent categorias={categorias} videoJuego={videoJuego} setJuego={setJuego} setSearch={setSearch} search={search}/>
                 
             </div>
         )

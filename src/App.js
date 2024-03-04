@@ -4,9 +4,9 @@ import './App.css';
 import CheckBox from './componentes/menu/CheckBox';
 import ListVideo from './componentes/ListVideo';
 import SearchComponent from './componentes/SearchComponent';
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 import VideojuegoForm from './componentes/VideojuegoForm';
-//import {getCategories} from './componentes/api/VideoJuegosApi';
+import Modal from './componentes/Modal';
 
 function App() {
 
@@ -16,40 +16,50 @@ function App() {
   const [categoriasSeleccionadas, setCategoriasSeleccionadas] = useState([]);
   const [plataformasSeleccionadas, setPlataformasSeleccionadas] = useState([]);
   const [videoJuegoSeleccionados,setVideoJuegosSeleccionados] = useState([]);
+  const [ search, setSearch ] = useState("")
+  
 
-  const FindVideoJuegos = async() => {
-    const response = await fetch("http://localhost:3000/videojuegos");
-    const data = await response.json();
-    setJuego(data);
-  }
-
+  
   const downloadCategorias = async () => {
-    const response = await fetch("http://localhost:3000/categories");
+    const response = await fetch("http://localhost:3200/categories");
     const data = await response.json();
     setCategorias(data);
     
   }
 
   const dowloadPlataformas = async () => {
-    const response = await fetch("http://localhost:3000/plataformas");
+    const response = await fetch("http://localhost:3200/plataformas");
     const data = await response.json();
     //console.log(plataformas);
     setPlataform(data);
   }
+
+  const getVideoJuegos = async() => {
+    const response = await fetch("http://localhost:3200/videojuegos");
+    const data = await response.json();
+    setJuego(data);
+    setVideoJuegosSeleccionados(data)
+  }
+
+
   useEffect(()=>{
+    getVideoJuegos();
     downloadCategorias();
-  },[videoJuego])
-
-  const results = videoJuego.filter((videojuego) => {
-    return categoriasSeleccionadas.some((categoriaId) => videojuego.categoria.includes(categoriaId.id)
-    )});
-
-  console.log(results);
-  
-  useEffect(()=>{
-    FindVideoJuegos();
     dowloadPlataformas();
   },[])
+
+  // const results = videoJuego.filter((videojuego) => {
+  //   return categoriasSeleccionadas.some((categoriaId) => videojuego.categoria.includes(categoriaId.id)
+  //   )});
+
+  // console.log(results);
+  
+
+  // useEffect(()=>{
+    
+  // },videoJuego,videoJuegoSeleccionados);
+
+
 
   
   const onDeleteBook = (deleteBook) => {
@@ -61,15 +71,23 @@ function App() {
 
   return (
     <div className="App">
+      <nav>
+        <Link to="/">Home</Link>&nbsp;&nbsp;
+        <Link to="/new">NewGame</Link>&nbsp;&nbsp;
+        {/* <Link to="/game/id">DetailGame</Link>&nbsp;&nbsp; */}
+        <Link to="/about">about</Link>
+      </nav>
      
-      <CheckBox categorias={categorias}  plataformas={plataforma} videoJuego={videoJuego} setVideoJuegosSeleccionados={setVideoJuegosSeleccionados}
-        setCategoriasSeleccionadas={setCategoriasSeleccionadas} categoriasSeleccionadas={categoriasSeleccionadas}
-        setPlataformasSeleccionadas={setPlataformasSeleccionadas} plataformasSeleccionadas={plataformasSeleccionadas}/>
+      <CheckBox categorias={categorias}  plataformas={plataforma} videoJuego={videoJuego} setJuego={setJuego} setVideoJuegosSeleccionados={setVideoJuegosSeleccionados}
+        videoJuegoSeleccionados={videoJuegoSeleccionados} setCategoriasSeleccionadas={setCategoriasSeleccionadas} categoriasSeleccionadas={categoriasSeleccionadas}
+        setPlataformasSeleccionadas={setPlataformasSeleccionadas} plataformasSeleccionadas={plataformasSeleccionadas} setSearch={setSearch} search={search}/>
        
       <Routes>
-      <Route  path='/buscar' element={<SearchComponent categorias={categorias} videoJuego={videoJuego} setJuego={setJuego}/> } />
-        <Route path="/" element={<ListVideo juegos={videoJuego} setJuego={setJuego}  categorias= {categorias} categoriasSeleccionadas={categoriasSeleccionadas}
-        plataformasSeleccionadas={plataformasSeleccionadas} onDeleteBook={onDeleteBook} />} />
+        <Route  path='/buscar' element={<SearchComponent categorias={categorias} videoJuego={videoJuego} setJuego={setJuego}/> } />
+        {/* <Route path='/' element={<div></div>} /> */}
+        <Route path="/" element={<ListVideo videoJuegos={videoJuego}  categorias= {categorias} plataforma={plataforma} setSearch={setSearch} search={search}
+              onDeleteBook={onDeleteBook} />} />
+        <Route path='/game/:id' element={<Modal videoJuego={videoJuego}/>} />
         <Route path='/form' element={<VideojuegoForm />}/>
       </Routes>
 

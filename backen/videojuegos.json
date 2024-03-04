@@ -1,5 +1,11 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "lopezcon1@gmail.com",
+      "password": "1234",
+      "id": 1
+    }
+  ],
   "videojuegos": [
     {
       "id": 1,
@@ -22,7 +28,7 @@
       "title": "Grand Theft Auto IV",
       "date": 2008,
       "description": "Grand Theft Auto IV es un videojuego de acción de mundo abierto creado por Rockstar North. El protagonista es Niko Bellic, un veterano de guerra de Europa del Este, que llegó a Estados Unidos en busca del sueño americano, pero que termina metido en un mundo criminal. El escenario de la historia es la ficticia ciudad de Liberty City.",
-      "image": "https://www.infobae.com/new-resizer/svskl6HQBuvgeAAqObVn7rbxsp4=/992x558/filters:format(webp):quality(85)/s3.amazonaws.com/arc-wordpress-client-uploads/infobae-wp/wp-content/uploads/2019/07/11130411/Grand-theft-auto-4.jpg",
+      "image": "https://i.ytimg.com/vi/xT35Q1CLCUA/maxresdefault.jpg",
       "categoria": [
         1,
         4,

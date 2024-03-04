@@ -2,27 +2,19 @@
 import '../componentes/listvideo.css'
 import VideoJuego from './VideoJuego';
 
-const ListVideo = ({juegos, setJuego, categorias,onDeleteBook}) => { 
+const ListVideo = ({videoJuegos, categorias, plataforma, setSearch, search, onDeleteBook}) => { 
    
-
-    
+    const results = !search ? videoJuegos : videoJuegos.filter((dato)=> dato.title.toLowerCase().includes(search.toLocaleLowerCase()));
 
     return  <div className='container'> 
-
-                    <div className='results'>
-
-                    {
-                    juegos.length === 0 ?
-                        <p>No se han encontrado libros</p>
-                        :""
-                    } 
-                
-                    </div>
+        
                 {
-                    juegos.map(videojuego =>
+                    results.length === 0 || videoJuegos.length === 0 ? <div style={{margin:'auto'}}>
+                        <p>No se han encontrado video juegos</p>
+                    </div> :
+                    results.map(videojuego =>
                         <>
-                            <VideoJuego videojuego={videojuego} categorias={categorias} onDeleteBook={onDeleteBook}/>
-                        
+                            <VideoJuego key={videojuego.id} videojuego={videojuego} categorias={categorias} plataforma={plataforma} setSearch={setSearch} onDeleteBook={onDeleteBook}/>
                         </>
                     )
                 }
